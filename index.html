@@ -1,59 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KSSM Form 1 Interactive Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; }
-        header { background: #2c3e50; color: white; padding: 25px; text-align: center; }
-        .container { padding: 20px; max-width: 600px; margin: auto; }
-        .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h2 { color: #27ae60; margin-top: 0; }
-        .quiz-section { background: #e8f4fd; padding: 15px; border-radius: 10px; margin-top: 10px; }
-        button { background: #3498db; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin: 5px; }
-        button:hover { background: #2980b9; }
-        #score-board { text-align: center; font-size: 1.2em; font-weight: bold; color: #2c3e50; }
+        body { font-family: sans-serif; background: #eef2f3; padding: 20px; }
+        .app-container { max-width: 400px; margin: auto; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .subject-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 10px; background: #27ae60; color: white; font-size: 16px; cursor: pointer; text-align: left; }
+        .note-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 10px; display: none; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>🎓 KSSM STUDY HUB</h1>
-    <div id="score-board">Score: <span id="score">0</span></div>
-</header>
-
-<div class="container">
-    <div class="card">
-        <h2>🧪 Science (DLP)</h2>
-        <p><b>Chapter 2:</b> Plant cells have a <b>Cell Wall</b> and <b>Chloroplasts</b>. Animal cells do not.</p>
-        <div class="quiz-section">
-            <p><b>Quiz:</b> Which part provides a fixed shape to the plant cell?</p>
-            <button onclick="check(true)">Cell Wall</button>
-            <button onclick="check(false)">Nucleus</button>
-        </div>
+<div class="app-container">
+    <div class="header">
+        <h1>KSSM FORM 1 HUB</h1>
+        <p>Your 2026 Study Partner</p>
     </div>
+    <div class="content">
+        <button class="subject-btn" onclick="show('sci')">🧪 Science (DLP) - Ch 2</button>
+        <div id="sci" class="note-box">
+            <b>Cell Structures:</b><br>
+            • Plant: Cell Wall, Chloroplast, Vacuole.<br>
+            • Animal: Irregular shape, no cell wall.
+        </div>
 
-    <div class="card">
-        <h2>🔢 Mathematics (DLP)</h2>
-        <p><b>Chapter 2:</b> Prime numbers only have two factors (1 and itself).</p>
-        <div class="quiz-section">
-            <p><b>Quiz:</b> Which of these is a prime number?</p>
-            <button onclick="check(false)">9</button>
-            <button onclick="check(true)">7</button>
+        <button class="subject-btn" onclick="show('math')" style="background:#2980b9">🔢 Math (DLP) - Ch 2</button>
+        <div id="math" class="note-box">
+            <b>Factors & Multiples:</b><br>
+            • Prime Numbers: 2, 3, 5, 7, 11...<br>
+            • HCF: Highest Common Factor.
+        </div>
+
+        <button class="subject-btn" onclick="show('sej')" style="background:#8e44ad">📜 Sejarah - Bab 2</button>
+        <div id="sej" class="note-box">
+            <b>Zaman Air Batu:</b><br>
+            • Suhu dunia menurun.<br>
+            • Air laut membeku.
         </div>
     </div>
 </div>
 
 <script>
-    let score = 0;
-    function check(isCorrect) {
-        if(isCorrect) {
-            score++;
-            alert("Correct! 🎉");
-        } else {
-            alert("Wrong! Try again. ❌");
-        }
-        document.getElementById('score').innerText = score;
+    function show(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none") { x.style.display = "block"; } 
+        else { x.style.display = "none"; }
     }
 </script>
 
